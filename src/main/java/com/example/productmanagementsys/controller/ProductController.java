@@ -97,4 +97,11 @@ public class ProductController {
         productService.deleteReview(reviewId);
         return ResponseEntity.noContent().build();
     }
+
+    // Update a review
+    @PutMapping("/reviews/{reviewId}")
+    public ResponseEntity<ProductReview> updateReview(@PathVariable String reviewId, @RequestBody ProductReview updatedReview) {
+        ProductReview updated = productService.updateReview(reviewId, updatedReview);
+        return ResponseEntity.ok(updated);
+    }
 }
