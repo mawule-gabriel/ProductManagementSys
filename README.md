@@ -14,12 +14,12 @@ A robust Spring Boot-based E-Commerce Product Management System that provides ad
 - Product review system with MongoDB integration
 
 ## Technologies Used
-- Java 17
+- Java 21
 - Spring Boot
 - Spring Data JPA
 - Spring Data MongoDB
 - Spring Boot Actuator
-- Maven/Gradle
+- Maven
 
 ## API Endpoints
 
