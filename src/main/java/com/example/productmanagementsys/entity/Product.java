@@ -6,6 +6,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
+/**
+ * The type Product.
+ */
 @Entity
 @Table(name = "products")
 @Data

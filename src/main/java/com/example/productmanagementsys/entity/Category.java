@@ -15,10 +15,10 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE) // Avoid setting the id manually
+    @Setter(AccessLevel.NONE)
     private Long id;
 
-    private String name;  // Ensure there's a name field
+    private String name;
 
     private String description;
 

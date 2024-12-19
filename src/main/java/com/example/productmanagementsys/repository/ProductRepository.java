@@ -6,8 +6,17 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * The interface Product repository.
+ */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    // Find products by category (optional)
+    /**
+     * Find by category id list.
+     *
+     * @param categoryId the category id
+     * @return the list
+     */
+// Find products by category (optional)
     List<Product> findByCategoryId(Long categoryId);
 }

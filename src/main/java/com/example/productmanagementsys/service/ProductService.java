@@ -13,12 +13,21 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Product service.
+ */
 @Service
 public class ProductService {
 
     private final ProductRepository productRepository;  // JPA (PostgreSQL)
     private final ProductReviewRepository productReviewRepository;  // MongoDB
 
+    /**
+     * Instantiates a new Product service.
+     *
+     * @param productRepository       the product repository
+     * @param productReviewRepository the product review repository
+     */
     @Autowired
     public ProductService(ProductRepository productRepository, ProductReviewRepository productReviewRepository) {
         this.productRepository = productRepository;
@@ -27,34 +36,68 @@ public class ProductService {
 
     // Product CRUD operations
 
-    // Create or Update a product
+    /**
+     * Save product product.
+     *
+     * @param product the product
+     * @return the product
+     */
+// Create or Update a product
     public Product saveProduct(Product product) {
         return productRepository.save(product);
     }
 
-    // Get a product by its ID
+    /**
+     * Gets product by id.
+     *
+     * @param id the id
+     * @return the product by id
+     */
+// Get a product by its ID
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
     }
 
-    // Get all products
+    /**
+     * Gets all products.
+     *
+     * @return the all products
+     */
+// Get all products
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    // Get products by category ID
+    /**
+     * Gets products by category.
+     *
+     * @param categoryId the category id
+     * @return the products by category
+     */
+// Get products by category ID
     public List<Product> getProductsByCategory(Long categoryId) {
         return productRepository.findByCategoryId(categoryId);
     }
 
-    // Delete a product
+    /**
+     * Delete product.
+     *
+     * @param id the id
+     */
+// Delete a product
     public void deleteProduct(Long id) {
         productRepository.deleteById(id);
     }
 
     // Product Review CRUD operations
 
-    // Add a product review
+    /**
+     * Add review product review.
+     *
+     * @param review the review
+     * @return the product review
+     */
+// Add a product review
     public ProductReview addReview(ProductReview review) {
         // Ensure the product exists before adding the review
         Optional<Product> product = productRepository.findById(Long.parseLong(review.getProductId()));
@@ -67,17 +110,35 @@ public class ProductService {
         return productReviewRepository.save(review);
     }
 
-    // Get reviews by product ID
+    /**
+     * Gets reviews by product id.
+     *
+     * @param productId the product id
+     * @return the reviews by product id
+     */
+// Get reviews by product ID
     public List<ProductReview> getReviewsByProductId(String productId) {
         return productReviewRepository.findByProductId(productId);
     }
 
-    // Delete a product review
+    /**
+     * Delete review.
+     *
+     * @param reviewId the review id
+     */
+// Delete a product review
     public void deleteReview(String reviewId) {
         productReviewRepository.deleteById(reviewId);
     }
 
-    // Update a review
+    /**
+     * Update review product review.
+     *
+     * @param reviewId      the review id
+     * @param updatedReview the updated review
+     * @return the product review
+     */
+// Update a review
     public ProductReview updateReview(String reviewId, ProductReview updatedReview) {
         ProductReview existingReview = productReviewRepository.findById(reviewId)
                 .orElseThrow(() -> new ReviewNotFoundException(reviewId));

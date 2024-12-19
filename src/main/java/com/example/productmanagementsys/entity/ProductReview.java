@@ -8,6 +8,9 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.time.LocalDateTime;
 
+/**
+ * The type Product review.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
