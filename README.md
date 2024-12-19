@@ -55,7 +55,7 @@ DELETE /api/products/reviews/{reviewId}     - Delete review
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/product-management-sys.git
+git clone https://github.com/mawule-gabriel/ProductManagementSys.git
 cd product-management-sys
 ```
 
